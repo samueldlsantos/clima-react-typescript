@@ -1,0 +1,19 @@
+.form, 
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input {
+    padding: 1rem;
+    background-color: transparent;
+    border: solid white;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+.input::placeholder {
+    color: #fff;
+    text-align: center;
+}

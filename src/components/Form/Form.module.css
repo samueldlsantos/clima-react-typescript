@@ -5,15 +5,32 @@
     gap: 2rem;
 }
 
-.input {
+.form input[type="text"],
+.form select {
     padding: 1rem;
     background-color: transparent;
-    border: solid white;
+    color: var(--white);
+    border: .3rem solid var(--white);
     border-radius: 1rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .input::placeholder {
-    color: #fff;
-    text-align: center;
+    color: var(--white);
+}
+
+.submit {
+    padding: 1rem;
+    border: none;
+    font-size: 2rem;
+    border-radius: 1rem;
+    color: var(--white);
+    background-color: var(--primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submit:hover {
+    filter: brightness(50%);
 }

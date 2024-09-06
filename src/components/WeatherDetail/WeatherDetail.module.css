@@ -1,0 +1,26 @@
+.detail {
+    color: #000;
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 1rem;
+}
+
+.city {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.temp {
+    font-size: 5rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 3rem;
+}
+
+.temps {
+    display: flex;
+    justify-content: space-around;
+    font-size: 3rem;
+    font-weight: 700;
+}

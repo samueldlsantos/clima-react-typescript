@@ -12,7 +12,7 @@
 }
 
 .temp {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 900;
     text-align: center;
     padding: 3rem;
@@ -23,4 +23,13 @@
     justify-content: space-around;
     font-size: 3rem;
     font-weight: 700;
+}
+
+.temps p {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.temps span {
+    font-weight: 400;
 }

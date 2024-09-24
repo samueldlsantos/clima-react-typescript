@@ -13,7 +13,9 @@ type WeatherHook = {
             temp_min: number
         }
     },
-    fetchWeather: (search: SearchType) => Promise<void>
+    fetchWeather: (search: SearchType) => Promise<void>,
+    errorMessage: string,
+    loading: boolean
 }
 
 
@@ -42,6 +44,7 @@ export const useWeather = create<WeatherHook>()((set, get) => ({
         }
     },
     fetchWeather: async (search) => { 
+        set((state)=> ({...state, loading:true}))
         try {
             const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${get().apiKey}`
 
@@ -75,15 +78,37 @@ export const useWeather = create<WeatherHook>()((set, get) => ({
                 const result = Weather.safeParse(dataWeather);
 
                 if(result.success){
-                    set((state)=> ({...state, weather: result.data  }))
+                    set((state)=> ({...state, weather: result.data, errorMessage: ''  }))
                 }
 
             }else {
-                throw "No se ha encontrado la informacion solicitada"
+                set((state)=>({...state, weather: {
+                    name: '',
+                    main: {
+                        temp: 0,
+                        temp_max:0,
+                        temp_min: 0
+                        }
+                    },
+                    errorMessage: 'No se ha encontrado la informacion solicitada' 
+                }))
             }
             
         } catch (error) {
-            console.log(error)
+            set((state)=>({...state, weather: {
+                name: '',
+                main: {
+                    temp: 0,
+                    temp_max:0,
+                    temp_min: 0
+                    }
+                },
+                errorMessage: 'Ocurrio un error al solicitar la peticion a la url'
+            }))
+        } finally {
+            set((state)=> ({...state, loading:false}))
         }
     },
+    errorMessage: '',
+    loading:false
   }))

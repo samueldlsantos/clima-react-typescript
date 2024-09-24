@@ -7,7 +7,7 @@ import { useWeather } from "../../hooks/useWeather";
 
 const Form = () => {
 
-  const {register, handleSubmit, reset, formState:{errors}} = useForm<SearchType>()
+  const {register, handleSubmit, formState:{errors}} = useForm<SearchType>()
 
   const {fetchWeather } = useWeather();
 

@@ -46,7 +46,7 @@ export const useWeather = create<WeatherHook>()((set, get) => ({
     fetchWeather: async (search) => { 
         set((state)=> ({...state, loading:true}))
         try {
-            const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${get().apiKey}`
+            const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${get().apiKey}`
 
             // await axios({
             //     method: 'get',
